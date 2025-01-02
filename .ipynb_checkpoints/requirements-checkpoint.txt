@@ -1,0 +1,8 @@
+tensorflow
+matplotlib
+shutil
+scipy
+cv2
+numpy
+seaborn
+sklearn
