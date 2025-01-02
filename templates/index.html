@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat vs Dog Classifier</title>
+    <link rel="stylesheet" href="/static/predict.css">
+</head>
+<body>
+    <h1>Cat vs Dog Classifier</h1>
+    <form action="/predict" method="post" enctype="multipart/form-data">
+        <label for="file">Upload an Image:</label>
+        <input type="file" name="file" id="file" required>
+        <button type="submit">Predict</button>
+    </form>
+    <div id="loader" style="display: none;">Loading...</div>
+
+    {% if prediction %}
+        <h2>Prediction: {{ prediction }}</h2>
+        <img src="{{ filepath }}" alt="Uploaded Image" style="max-width: 300px;">
+    {% endif %}
+
+    <script>
+        const form = document.querySelector('form');
+        form.addEventListener('submit', () => {
+            document.getElementById('loader').style.display = 'block';
+        });
+    </script>
+</body>
+
+</html>
